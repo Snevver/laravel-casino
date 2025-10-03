@@ -5,12 +5,10 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import WelcomeText from '@/Components/WelcomeText.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 defineProps({
-    canResetPassword: {
-        type: Boolean,
-    },
     status: {
         type: String,
     },
@@ -49,6 +47,7 @@ const submit = () => {
                     required
                     autofocus
                     autocomplete="username"
+                    placeholder="someone@example.com"
                 />
 
                 <InputError class="mt-2" :message="form.errors.email" />
@@ -64,6 +63,7 @@ const submit = () => {
                     v-model="form.password"
                     required
                     autocomplete="current-password"
+                    placeholder="••••••••"
                 />
 
                 <InputError class="mt-2" :message="form.errors.password" />
@@ -71,11 +71,22 @@ const submit = () => {
 
             <div class="mt-4 block">
                 <label class="flex items-center">
-                    <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ms-2 text-sm text-gray-600"
+                    <Checkbox name="remember" class="border border-black rounded-md" v-model:checked="form.remember" />
+                    <span class="ms-2 text-sm text-black"
                         >Remember me</span
                     >
                 </label>
+            </div>
+
+            <div class="mt-4 block">
+                <div class="">
+                    <Link
+                        :href="route('register')"
+                        class="text-sm text-gray-700 underline hover:text-gray-900"
+                    >
+                        Don't have an account? Register here
+                    </Link>
+                </div>
             </div>
 
             <div class="mt-4 flex items-center justify-end">
