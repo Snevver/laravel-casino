@@ -5,21 +5,25 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <div
-        class="flex min-h-screen flex-col items-center bg-black pt-6 sm:justify-center sm:pt-0"
-    >
-        <div>
+    <div class="flex min-h-screen items-center bg-black pt-6 sm:justify-center sm:pt-0">
+        <div class="flex flex-col items-center justify-center margin">
             <Link href="/">
                 <ApplicationLogo class="h-40 w-auto fill-current text-gray-500 border rounded-full border-4 border-white" />
             </Link>
+
+            <WelcomeText class="mt-6 text-center"/>
         </div>
 
-        <WelcomeText class="mt-6 text-center"/>
-
         <div
-            class="mt-6 w-full overflow-hidden bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg"
+            class="mt-6 w-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 px-6 py-4 sm:max-w-md sm:rounded-2xl shadow-lg"
         >
             <slot />
         </div>
     </div>
 </template>
+
+<style scoped>
+.margin {
+    margin: 100px;
+}
+</style>

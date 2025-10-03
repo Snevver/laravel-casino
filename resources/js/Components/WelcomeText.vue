@@ -3,7 +3,13 @@
         <h1 class="mb-2 text-3xl font-bold text-white">
             Welcome to Svens 
             <br>
-            <span class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent text-9xl">Casino</span>
+            <span class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent text-9xl text-shadow">Casino</span>
         </h1>
     </div>
 </template>
+
+<style scoped>
+.text-shadow {
+    text-shadow: 0 8px 20px rgba(255, 255, 255, 0.35);
+}
+</style>

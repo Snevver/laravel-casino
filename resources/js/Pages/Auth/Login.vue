@@ -1,12 +1,12 @@
 <script setup>
-import Checkbox from '@/Components/Checkbox.vue';
-import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import WelcomeText from '@/Components/WelcomeText.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import Checkbox from "@/Components/Checkbox.vue";
+import GuestLayout from "@/Layouts/GuestLayout.vue";
+import InputError from "@/Components/InputError.vue";
+import InputLabel from "@/Components/InputLabel.vue";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
+import TextInput from "@/Components/TextInput.vue";
+import WelcomeText from "@/Components/WelcomeText.vue";
+import { Head, Link, useForm } from "@inertiajs/vue3";
 
 defineProps({
     status: {
@@ -15,14 +15,14 @@ defineProps({
 });
 
 const form = useForm({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
     remember: false,
 });
 
 const submit = () => {
-    form.post(route('login'), {
-        onFinish: () => form.reset('password'),
+    form.post(route("login"), {
+        onFinish: () => form.reset("password"),
     });
 };
 </script>
@@ -42,7 +42,7 @@ const submit = () => {
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full black-border bg-black/80 text-white"
                     v-model="form.email"
                     required
                     autofocus
@@ -54,12 +54,20 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <div class="flex items-center justify-between">
+                    <InputLabel for="password" value="Password" />
+                    <Link
+                        :href="route('password.request')"
+                        class="rounded-md text-sm text-gray-700 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    >
+                        Forgot your password?
+                    </Link>
+                </div>
 
                 <TextInput
                     id="password"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full black-border bg-black/80 text-white"
                     v-model="form.password"
                     required
                     autocomplete="current-password"
@@ -71,36 +79,29 @@ const submit = () => {
 
             <div class="mt-4 block">
                 <label class="flex items-center">
-                    <Checkbox name="remember" class="border border-black rounded-md" v-model:checked="form.remember" />
-                    <span class="ms-2 text-sm text-black"
-                        >Remember me</span
-                    >
+                    <Checkbox
+                        name="remember"
+                        class="border border-black rounded-md"
+                        v-model:checked="form.remember"
+                    />
+                    <span class="ms-2 text-sm text-black">Remember me</span>
                 </label>
-            </div>
-
-            <div class="mt-4 block">
-                <div class="">
-                    <Link
-                        :href="route('register')"
-                        class="text-sm text-gray-700 underline hover:text-gray-900"
-                    >
-                        Don't have an account? Register here
-                    </Link>
-                </div>
             </div>
 
             <div class="mt-4 flex items-center justify-end">
                 <Link
-                    v-if="canResetPassword"
-                    :href="route('password.request')"
-                    class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    :href="route('register')"
+                    class="text-sm text-gray-700 underline hover:text-gray-900"
                 >
-                    Forgot your password?
+                    Don't have an account? Register here
                 </Link>
 
                 <PrimaryButton
                     class="ms-4"
-                    :class="{ 'opacity-25': form.processing }"
+                    :class="{
+                        'opacity-25': form.processing,
+                        'cursor-not-allowed': form.processing,
+                    }"
                     :disabled="form.processing"
                 >
                     Log in
@@ -109,3 +110,10 @@ const submit = () => {
         </form>
     </GuestLayout>
 </template>
+
+<style scoped>
+.black-border {
+    border: 6px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+</style>
