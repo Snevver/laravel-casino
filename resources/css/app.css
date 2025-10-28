@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Make the whole page background black and default text white */
+html, body, #app {
+	@apply bg-black text-white;
+}
+
+/* Ensure full height pages cover viewport */
+html, body {
+	height: 100%;
+}

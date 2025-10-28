@@ -1,7 +1,8 @@
 <script setup>
 
-import { Head, Link } from '@inertiajs/vue3';
-import LogoutButton from '@/Components/LogoutButton.vue';
+import { Head } from '@inertiajs/vue3';
+import Navbar from '@/Components/Navbar.vue';
+import CoolBorders from '@/Components/CoolBorders.vue';
 
 defineProps({
     canLogin: {
@@ -16,6 +17,7 @@ defineProps({
 
 <template>
     <Head title="Home" />
+    <CoolBorders />
+    <Navbar />
 
-    <LogoutButton />
 </template>
