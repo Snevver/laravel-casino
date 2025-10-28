@@ -24,18 +24,19 @@ const submit = () => {
     <GuestLayout>
         <Head title="Register" />
 
-        <form @submit.prevent="submit">
+        <form @submit.prevent="submit" class="w-[50vh]">
             <div>
                 <InputLabel for="name" value="Name" />
 
                 <TextInput
                     id="name"
                     type="text"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full black-border bg-black/80 text-white"
                     v-model="form.name"
                     required
                     autofocus
                     autocomplete="name"
+                    placeholder="John Doe"
                 />
 
                 <InputError class="mt-2" :message="form.errors.name" />
@@ -47,10 +48,11 @@ const submit = () => {
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full black-border bg-black/80 text-white"
                     v-model="form.email"
                     required
-                    autocomplete="username"
+                    autocomplete="email"
+                    placeholder="someone@example.com"
                 />
 
                 <InputError class="mt-2" :message="form.errors.email" />
@@ -62,10 +64,11 @@ const submit = () => {
                 <TextInput
                     id="password"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full black-border bg-black/80 text-white"
                     v-model="form.password"
                     required
                     autocomplete="new-password"
+                    placeholder="••••••••"
                 />
 
                 <InputError class="mt-2" :message="form.errors.password" />
@@ -80,10 +83,11 @@ const submit = () => {
                 <TextInput
                     id="password_confirmation"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full black-border bg-black/80 text-white"
                     v-model="form.password_confirmation"
                     required
                     autocomplete="new-password"
+                    placeholder="••••••••"
                 />
 
                 <InputError
@@ -111,3 +115,10 @@ const submit = () => {
         </form>
     </GuestLayout>
 </template>
+
+<style scoped>
+.black-border {
+    border: 6px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+</style>

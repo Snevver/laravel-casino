@@ -42,7 +42,7 @@ const submit = () => {
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full black-border bg-black/80 text-white"
                     v-model="form.email"
                     required
                     autofocus
@@ -58,7 +58,7 @@ const submit = () => {
                 <TextInput
                     id="password"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full black-border bg-black/80 text-white"
                     v-model="form.password"
                     required
                     autocomplete="new-password"
@@ -76,7 +76,7 @@ const submit = () => {
                 <TextInput
                     id="password_confirmation"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full black-border bg-black/80 text-white"
                     v-model="form.password_confirmation"
                     required
                     autocomplete="new-password"
@@ -99,3 +99,10 @@ const submit = () => {
         </form>
     </GuestLayout>
 </template>
+
+<style scoped>
+.black-border {
+    border: 6px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+</style>

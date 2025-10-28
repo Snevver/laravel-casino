@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, useForm } from '@inertiajs/vue3';
+import { Inertia } from '@inertiajs/inertia';
 
 defineProps({
     status: {
@@ -18,6 +19,10 @@ const form = useForm({
 
 const submit = () => {
     form.post(route('password.email'));
+};
+
+const goBack = () => {
+    Inertia.get(route('login'));
 };
 </script>
 
@@ -45,11 +50,12 @@ const submit = () => {
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full black-border bg-black/80 text-white"
                     v-model="form.email"
                     required
                     autofocus
-                    autocomplete="username"
+                    autocomplete="email"
+                    placeholder="someone@example.com"
                 />
 
                 <InputError class="mt-2" :message="form.errors.email" />
@@ -64,5 +70,15 @@ const submit = () => {
                 </PrimaryButton>
             </div>
         </form>
+        <PrimaryButton type="button" @click="goBack">
+            Go back
+        </PrimaryButton>
     </GuestLayout>
 </template>
+
+<style scoped>
+.black-border {
+    border: 6px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-4 text-center">
+    <div class="mb-4 text-center flex flex-row">
         <h1 class="mb-2 text-3xl font-bold text-white">
             Welcome to Svens 
             <br>
