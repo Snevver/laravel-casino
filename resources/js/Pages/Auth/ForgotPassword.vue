@@ -6,6 +6,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import { Inertia } from '@inertiajs/inertia';
+import CoolBorders from '@/Components/CoolBorders.vue';
 
 defineProps({
     status: {
@@ -29,6 +30,8 @@ const goBack = () => {
 <template>
     <GuestLayout>
         <Head title="Forgot Password" />
+
+        <CoolBorders />
 
         <div class="mb-4 text-sm text-gray-600">
             Forgot your password? No problem. Just let us know your email

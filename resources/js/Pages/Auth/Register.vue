@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+import CoolBorders from '@/Components/CoolBorders.vue';
 
 const form = useForm({
     name: '',
@@ -23,6 +24,8 @@ const submit = () => {
 <template>
     <GuestLayout>
         <Head title="Register" />
+
+        <CoolBorders />
 
         <form @submit.prevent="submit" class="w-[50vh]">
             <div>
